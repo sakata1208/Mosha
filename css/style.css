@@ -192,12 +192,18 @@ a {
     background-color: white;
     line-height: 50px;
   }
+  .ac_parent :hover {
+    background: #E4F5F7;
+  }
   .ac_child {
     position: relative;
     line-height: 50px;
     padding-left: 20px;
     background-color: white;
     width: 100%;
+  }
+  .ac_child :hover {
+    background: #E4F5F7;
   }
 }
 /*メイン部分*/
