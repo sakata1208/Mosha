@@ -113,11 +113,12 @@ a {
         }
     }
 }
-    
+
+/*アコーディオンメニュー部分*/  
 .ac_parent{
         position: relative;
         padding:0px 15px;
-        :hover {
+        &:hover {
             background-color:#D4F1F8;
         }
     }
@@ -127,8 +128,9 @@ a {
         background-color: #E4F5F7;
         text-align:left;
         display: none;
+        padding:0 10px 0 10px;
+        width: 250px;
         font-weight: 300;
-        width: 200px;
         :hover{
             background-color: white;
             }
@@ -165,6 +167,7 @@ a {
   }
 }
 
+/*以下はタブレットの幅以下でハンバーガーメニューが表示されるとき*/
 @include breakpoint(tablet) {
     .header {
         height: 50px;
@@ -181,55 +184,76 @@ a {
         transition: all .5s; /* アニメーション速度 */
         transform: translateY(-120%);
         background-color: white;
-        li {
-            width:100%;  /* 画面幅いっぱいに */
-        }
         &_btn {
             display: none;
         }
+        &.active{
+            transform: translateY(0);
+            }
     }
 
-.hamburger_btn.active{
-    background:$color--blue
-}
-.hamburger_btn.active span{
-    background-color: white;
-}
-.hamburger_btn.active span:nth-of-type(1){
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    top: 25px;
-}
-.hamburger_btn.active span:nth-of-type(2){
-    opacity: 0;
-}
-.hamburger_btn.active span:nth-of-type(3){
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-    top: 25px;
-}
-      
-.header_nav.active{
-    transform: translateY(0);
+    .hamburger_btn.active{
+        background:$color--blue
+    }
+    .hamburger_btn.active span{
+        background-color: white;
+    }
+    .hamburger_btn.active span:nth-of-type(1){
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        top: 25px;
+    }
+    .hamburger_btn.active span:nth-of-type(2){
+        opacity: 0;
+    }
+    .hamburger_btn.active span:nth-of-type(3){
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        top: 25px;
     }
 
-.ac_parent{
-background-color: white;
-line-height: 50px;
-:hover {
-    background: #E4F5F7;
-}
-}
-.ac_child{
-    position: relative;
+    .ac_parent{
     line-height: 50px;
-    padding-left: 20px;
-    background-color: white;
-    width: 100%;
-    :hover {
-        background:#E4F5F7;
+        &:before { /*横棒*/
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 8px;
+            width: 24px;
+            height: 2px;
+            background: black;
+            transform: translateY(-50%);
+        }
+        &:after { /*縦棒*/
+            content: "";
+            position: absolute;
+            top: 50%;
+            /* 8px+12px-1px(幅2pxの半分) */
+            right: 19px;
+            width: 2px;
+            height: 24px;
+            background:black;
+            transform: translateY(-50%);
+            transition: 0s;
+        }
+        &.open:after {  /*縦棒*/
+            top: 25%;
+            opacity: 0;
+            transform: rotate(90deg);
+        }
+        &:hover {
+            background: #E4F5F7;
+        }
     }
-}
+    .ac_child{
+        position: relative;
+        line-height: 50px;
+        background-color: white;
+        width: 100%;
+        :hover {
+            background:#E4F5F7;
+        }
+    }
 }
 
   

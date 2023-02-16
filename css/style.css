@@ -94,11 +94,12 @@ a {
   margin-right: 10px;
 }
 
+/*アコーディオンメニュー部分*/
 .ac_parent {
   position: relative;
   padding: 0px 15px;
 }
-.ac_parent :hover {
+.ac_parent:hover {
   background-color: #D4F1F8;
 }
 
@@ -107,8 +108,9 @@ a {
   background-color: #E4F5F7;
   text-align: left;
   display: none;
+  padding: 0 10px 0 10px;
+  width: 250px;
   font-weight: 300;
-  width: 200px;
 }
 .ac_child :hover {
   background-color: white;
@@ -145,6 +147,7 @@ a {
   bottom: 15px;
 }
 
+/*以下はタブレットの幅以下でハンバーガーメニューが表示されるとき*/
 @media (max-width: 1250px) {
   .header {
     height: 50px;
@@ -162,11 +165,11 @@ a {
     transform: translateY(-120%);
     background-color: white;
   }
-  .header_nav li {
-    width: 100%; /* 画面幅いっぱいに */
-  }
   .header_nav_btn {
     display: none;
+  }
+  .header_nav.active {
+    transform: translateY(0);
   }
   .hamburger_btn.active {
     background: #2498B3;
@@ -185,20 +188,42 @@ a {
     transform: rotate(45deg);
     top: 25px;
   }
-  .header_nav.active {
-    transform: translateY(0);
-  }
   .ac_parent {
-    background-color: white;
     line-height: 50px;
   }
-  .ac_parent :hover {
+  .ac_parent:before { /*横棒*/
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    width: 24px;
+    height: 2px;
+    background: black;
+    transform: translateY(-50%);
+  }
+  .ac_parent:after { /*縦棒*/
+    content: "";
+    position: absolute;
+    top: 50%;
+    /* 8px+12px-1px(幅2pxの半分) */
+    right: 19px;
+    width: 2px;
+    height: 24px;
+    background: black;
+    transform: translateY(-50%);
+    transition: 0s;
+  }
+  .ac_parent.open:after { /*縦棒*/
+    top: 25%;
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+  .ac_parent:hover {
     background: #E4F5F7;
   }
   .ac_child {
     position: relative;
     line-height: 50px;
-    padding-left: 20px;
     background-color: white;
     width: 100%;
   }
