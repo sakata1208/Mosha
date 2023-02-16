@@ -120,6 +120,7 @@ a {
   position: relative; /* buttonタグを起点にしてspanタグの位置を決める */
   width: 50px;
   height: 50px;
+  margin-right: 20px;
   transition: all 0.4s; /* アニメーション速度 */
   border: none; /* buttonタグの装飾を消去 */
   outline: none; /* buttonタグの装飾を消去 */
@@ -131,7 +132,7 @@ a {
   display: inline-block;
   transition: all 0.4s; /* アニメーション速度 */
   position: absolute; /* buttonタグから見た位置 */
-  left: 0; /* buttonタグの左端に寄せる */
+  left: 25%; /* buttonタグの左端に寄せる */
   width: 50%; /* 横幅をbuttonタグいっぱいに広げる(50px) */
   height: 2px; /* 線の太さ */
   background-color: #2498B3;
