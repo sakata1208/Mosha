@@ -58,9 +58,6 @@ a {
     background-attachment: fixed;
 }
 
-
-
-
 /*ヘッダー部分*/
 .header {
     position: fixed;
@@ -124,15 +121,16 @@ a {
     }
           
 .ac_child {  
-        position: absolute;
+        position: absolute; /*ヘッダーから下にはみ出すようにする*/
         background-color: #E4F5F7;
         text-align:left;
-        display: none;
+        display: none; /*ホバーしない時は見えないように*/
         padding:0 10px 0 10px;
         width: 250px;
         font-weight: 300;
         :hover{
             background-color: white;
+            color: #2498B3;
             }
     }
 
@@ -147,7 +145,7 @@ a {
     background: transparent;  /* buttonタグの装飾を消去 */
     display: none;
     span{
-    /* すべての線に共通のスタイル */
+/* すべての線に共通のスタイル */
     display: inline-block;
     transition: all .4s; /* アニメーション速度 */
     position: absolute;  /* buttonタグから見た位置 */
@@ -183,13 +181,13 @@ a {
         left:0;
         width: 100%;
         transition: all .5s; /* アニメーション速度 */
-        transform: translateY(-120%);
+        transform: translateY(-120%); /*ボタンを押す前は上に隠しておく*/
         background-color: white;
         &_btn {
             display: none;
         }
         &.active{
-            transform: translateY(0);
+            transform: translateY(0); /*ボタンを押すと降りてくる*/
             }
     }
 
@@ -218,29 +216,24 @@ a {
         &:before { /*横棒*/
             content: "";
             position: absolute;
-            top: 50%;
+            top: 25px;
             right: 8px;
             width: 24px;
             height: 2px;
             background: black;
-            transform: translateY(-50%);
         }
         &:after { /*縦棒*/
             content: "";
             position: absolute;
-            top: 50%;
+            top: 12.5px;
             /* 8px+12px-1px(幅2pxの半分) */
             right: 19px;
             width: 2px;
             height: 24px;
             background:black;
-            transform: translateY(-50%);
-            transition: 0s;
         }
         &.open:after {  /*縦棒*/
-            top: 25%;
-            opacity: 0;
-            transform: rotate(90deg);
+            display: none;
         }
         &:hover {
             background: #E4F5F7;

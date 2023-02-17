@@ -104,16 +104,17 @@ a {
 }
 
 .ac_child {
-  position: absolute;
+  position: absolute; /*ヘッダーから下にはみ出すようにする*/
   background-color: #E4F5F7;
   text-align: left;
-  display: none;
+  display: none; /*ホバーしない時は見えないように*/
   padding: 0 10px 0 10px;
   width: 250px;
   font-weight: 300;
 }
 .ac_child :hover {
   background-color: white;
+  color: #2498B3;
 }
 
 .hamburger_btn {
@@ -163,14 +164,14 @@ a {
     left: 0;
     width: 100%;
     transition: all 0.5s; /* アニメーション速度 */
-    transform: translateY(-120%);
+    transform: translateY(-120%); /*ボタンを押す前は上に隠しておく*/
     background-color: white;
   }
   .header_nav_btn {
     display: none;
   }
   .header_nav.active {
-    transform: translateY(0);
+    transform: translateY(0); /*ボタンを押すと降りてくる*/
   }
   .hamburger_btn.active {
     background: #2498B3;
@@ -195,29 +196,24 @@ a {
   .ac_parent:before { /*横棒*/
     content: "";
     position: absolute;
-    top: 50%;
+    top: 25px;
     right: 8px;
     width: 24px;
     height: 2px;
     background: black;
-    transform: translateY(-50%);
   }
   .ac_parent:after { /*縦棒*/
     content: "";
     position: absolute;
-    top: 50%;
+    top: 12.5px;
     /* 8px+12px-1px(幅2pxの半分) */
     right: 19px;
     width: 2px;
     height: 24px;
     background: black;
-    transform: translateY(-50%);
-    transition: 0s;
   }
   .ac_parent.open:after { /*縦棒*/
-    top: 25%;
-    opacity: 0;
-    transform: rotate(90deg);
+    display: none;
   }
   .ac_parent:hover {
     background: #E4F5F7;
