@@ -114,9 +114,11 @@ a {
 /*アコーディオンメニュー部分*/  
 .ac_parent{
         position: relative;
-        padding:0px 15px;
-        &:hover {
+        a {
+            padding: 20px 15px;
+            &:hover {
             background-color:#D4F1F8;
+            }
         }
     }
           
@@ -124,13 +126,18 @@ a {
         position: absolute; /*ヘッダーから下にはみ出すようにする*/
         background-color: #E4F5F7;
         text-align:left;
-        display: none; /*ホバーしない時は見えないように*/
-        padding:0 10px 0 10px;
         width: 250px;
+        display: none; /*ホバーしない時は見えないように*/
         font-weight: 300;
+        a {
+            padding-left: 15px;
+            &:hover{
+                background-color: white;
+                color: #2498B3;
+            }
+        }
         :hover{
             background-color: white;
-            color: #2498B3;
             }
     }
 
@@ -180,7 +187,7 @@ a {
         top: 50px;  /* ヘッダーバーの厚さ分下に */
         left:0;
         width: 100%;
-        transition: all .5s; /* アニメーション速度 */
+        transition: all .3s; /* アニメーション速度 */
         transform: translateY(-120%); /*ボタンを押す前は上に隠しておく*/
         background-color: white;
         &_btn {
@@ -222,7 +229,7 @@ a {
             height: 2px;
             background: black;
         }
-        &:after { /*縦棒*/
+        &:after { /*縦棒(閉じているとき)*/
             content: "";
             position: absolute;
             top: 12.5px;
@@ -232,21 +239,37 @@ a {
             height: 24px;
             background:black;
         }
-        &.open:after {  /*縦棒*/
+        &.open:after {  /*縦棒(開いているとき)*/
             display: none;
         }
         &:hover {
-            background: #E4F5F7;
+            background: #F3FAFB;
         }
-    }
+        a {
+            padding: 10px 15px;
+            &:hover {
+            background-color:#F3FAFB;
+            }
+        }
+        }
+    
     .ac_child{
         position: relative;
         line-height: 50px;
         background-color: white;
         width: 100%;
         :hover {
-            background:#E4F5F7;
+            background:#F3FAFB;
         }
+        a {
+            padding: 10px 10px 10px 25px;
+            &:hover {
+                background:#F3FAFB;
+                color: black;
+            }
+        }
+
+
     }
 }
 
@@ -316,7 +339,7 @@ a {
         background-color: $color--blue;
         color: white;
         font-weight: bold;
-        padding: 24px 37px;
+        padding: 24px 40px;
         border-radius: 4%;
         @include breakpoint(smartphone) {
             padding: 12px 18px; 

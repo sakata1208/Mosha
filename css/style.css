@@ -97,9 +97,11 @@ a {
 /*アコーディオンメニュー部分*/
 .ac_parent {
   position: relative;
-  padding: 0px 15px;
 }
-.ac_parent:hover {
+.ac_parent a {
+  padding: 20px 15px;
+}
+.ac_parent a:hover {
   background-color: #D4F1F8;
 }
 
@@ -107,14 +109,19 @@ a {
   position: absolute; /*ヘッダーから下にはみ出すようにする*/
   background-color: #E4F5F7;
   text-align: left;
-  display: none; /*ホバーしない時は見えないように*/
-  padding: 0 10px 0 10px;
   width: 250px;
+  display: none; /*ホバーしない時は見えないように*/
   font-weight: 300;
+}
+.ac_child a {
+  padding-left: 15px;
+}
+.ac_child a:hover {
+  background-color: white;
+  color: #2498B3;
 }
 .ac_child :hover {
   background-color: white;
-  color: #2498B3;
 }
 
 .hamburger_btn {
@@ -163,7 +170,7 @@ a {
     top: 50px; /* ヘッダーバーの厚さ分下に */
     left: 0;
     width: 100%;
-    transition: all 0.5s; /* アニメーション速度 */
+    transition: all 0.3s; /* アニメーション速度 */
     transform: translateY(-120%); /*ボタンを押す前は上に隠しておく*/
     background-color: white;
   }
@@ -202,7 +209,7 @@ a {
     height: 2px;
     background: black;
   }
-  .ac_parent:after { /*縦棒*/
+  .ac_parent:after { /*縦棒(閉じているとき)*/
     content: "";
     position: absolute;
     top: 12.5px;
@@ -212,11 +219,17 @@ a {
     height: 24px;
     background: black;
   }
-  .ac_parent.open:after { /*縦棒*/
+  .ac_parent.open:after { /*縦棒(開いているとき)*/
     display: none;
   }
   .ac_parent:hover {
-    background: #E4F5F7;
+    background: #F3FAFB;
+  }
+  .ac_parent a {
+    padding: 10px 15px;
+  }
+  .ac_parent a:hover {
+    background-color: #F3FAFB;
   }
   .ac_child {
     position: relative;
@@ -225,7 +238,14 @@ a {
     width: 100%;
   }
   .ac_child :hover {
-    background: #E4F5F7;
+    background: #F3FAFB;
+  }
+  .ac_child a {
+    padding: 10px 10px 10px 25px;
+  }
+  .ac_child a:hover {
+    background: #F3FAFB;
+    color: black;
   }
 }
 /*メイン部分*/
@@ -302,7 +322,7 @@ a {
   background-color: #2498B3;
   color: white;
   font-weight: bold;
-  padding: 24px 37px;
+  padding: 24px 40px;
   border-radius: 4%;
 }
 @media (max-width: 560px) {
